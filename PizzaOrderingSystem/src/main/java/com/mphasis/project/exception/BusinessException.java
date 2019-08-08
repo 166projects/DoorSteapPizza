@@ -1,5 +1,9 @@
 package com.mphasis.project.exception;
 
-public class BusinessException {
-
+public class BusinessException extends RuntimeException {
+	private static final long serialVersionUID=1L;
+    
+    public BusinessException(String message) {
+ 	   super(message);
+    }
 }
