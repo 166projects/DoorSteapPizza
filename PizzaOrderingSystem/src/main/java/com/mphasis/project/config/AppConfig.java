@@ -41,7 +41,7 @@ public class AppConfig {
 		props.put("hibernate.hbm2ddl.auto", "create");
 		props.put("hibernate.show_sql", "true");
 		props.put("hibernate.format_sql", "true");
-		props.put("hibernate.default_schema", "monty");
+		//props.put("hibernate.default_schema", "monty");
 		sessionFactory.setHibernateProperties(props);
 		sessionFactory.setPackagesToScan("com.mphasis.project.entities");
 		return sessionFactory;

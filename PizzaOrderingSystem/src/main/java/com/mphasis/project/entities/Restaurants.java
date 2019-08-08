@@ -32,7 +32,7 @@ private Blob image;
 @Column(nullable=false,length=50)
 private String menu;
 
-@Column(nullable=false)
+@Column(nullable=false,length=5)
 private int ratings;
 
 @ManyToMany(mappedBy="restaurants", fetch=FetchType.LAZY,cascade=CascadeType.ALL)

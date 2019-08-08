@@ -6,6 +6,7 @@ import java.sql.Blob;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,12 +22,17 @@ public class FoodItems implements Serializable {
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private int fid;
+		@Column(nullable=false)
 		private String fname;
+		@Column(nullable=false)
 		private String type;
+		@Column(nullable=false)
 		private String category;
 		@ManyToMany(mappedBy="foodItems")
 		private List<Topping> toppings;
+		@Column(nullable=false)
 		private int cost;
+		@Column(nullable=false)
 		private Blob image;
 		@OneToMany(mappedBy="fooditems",cascade=CascadeType.ALL)
 		private List<OrderItems> orderItems;

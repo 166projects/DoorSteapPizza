@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,11 @@ public class DeliveryBoy implements Serializable{
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private int did;
+		@Column(nullable=false)
 		private String dname;
+		@Column(nullable=false)
+		private String dpass;
+		@Column(nullable=false,length=10)
 		private long contactno;
 		@OneToMany(mappedBy="deliveryboy",cascade=CascadeType.ALL)
 		private List<Orders> orders;
@@ -46,9 +51,17 @@ public class DeliveryBoy implements Serializable{
 		public void setOrders(List<Orders> orders) {
 			this.orders = orders;
 		}
+		public String getDpass() {
+			return dpass;
+		}
+		public void setDpass(String dpass) {
+			this.dpass = dpass;
+		}
 		@Override
 		public String toString() {
-			return "DeliveryBoy [did=" + did + ", dname=" + dname + ", contactno=" + contactno + "]";
+			return "DeliveryBoy [did=" + did + ", dname=" + dname + ", dpass=" + dpass + ", contactno=" + contactno
+					+ ", orders=" + orders + "]";
 		}
+		
 		
 }

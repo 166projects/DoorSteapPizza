@@ -1,60 +1,63 @@
 package com.mphasis.project.dao;
 
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mphasis.project.entities.Orders;
 @Repository
-public class OrderDaoImpl implements OrderDao {
+public class OrderItemsDaoImpl implements OrderItemsDao{
 	@Autowired
 	SessionFactory sessionFactory;
-	public List<Orders> getAllOrders() {
+	public List<OrderItemsDao> getAllOrderItems() {
 		Session session=sessionFactory.openSession();
 		@SuppressWarnings({ "unchecked", "deprecation" })
-		List<Orders> orders=session.createCriteria(Orders.class).list();
-		return orders;
+		List<OrderItemsDao> orderItems=session.createCriteria(OrderItemsDao.class).list();
+		return orderItems;
 	}
 
-	public Orders getOrdersById(int id) {
+	public OrderItemsDao getOrderItemsById(int id) {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
-		Orders od=(Orders) session.get(Orders.class, id);
-
+		OrderItemsDao od=(OrderItemsDao) session.get(OrderItemsDao.class, id);
 		tr.commit();
 		return od;
 	}
 
-	public void insertOrders(Orders orders) {
+	public void insertOrderItems(OrderItemsDao orderItems) {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
-		session.save(orders);
+		session.save(orderItems);
 		tr.commit();
 	}
 
-	public void updateOrders(Orders orders) {
+	public void updateOrderItems(OrderItemsDao ordersItems) {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
-		session.update(orders);
+		session.update(ordersItems);
 		tr.commit();
 	}
 
-	public void deleteOrders(int id) {
+	public void deleteOrderItems(int id) {
 		Session session=sessionFactory.openSession();
 		Transaction tr=session.beginTransaction();
-		Orders od1=(Orders) session.get(Orders.class, id);
+		OrderItemsDao od1=(OrderItemsDao) session.get(OrderItemsDao.class, id);
 		session.delete(od1);
 		tr.commit();
 	}
 
-	public double getTotalCost() {
-		 return 0;
+	public double getTotalPrice(int quantity, int cost) {
+		Session session=sessionFactory.openSession();
+		Transaction tr=session.beginTransaction();
+		return quantity*cost;
 	}
 
+	public OrderItemsDao getOrderItemsByCid(int cid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }
