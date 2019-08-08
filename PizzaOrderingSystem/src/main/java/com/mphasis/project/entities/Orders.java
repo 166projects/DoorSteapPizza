@@ -19,7 +19,7 @@ public class Orders implements Serializable{
 	@ManyToOne
 	private DeliveryBoy deliveryboy;
 	@ManyToOne
-	private User users;
+	private Customer users;
 	public int getOid() {
 		return oid;
 	}
@@ -44,10 +44,10 @@ public class Orders implements Serializable{
 	public void setDeliveryboy(DeliveryBoy deliveryboy) {
 		this.deliveryboy = deliveryboy;
 	}
-	public User getUsers() {
+	public Customer getUsers() {
 		return users;
 	}
-	public void setUsers(User users) {
+	public void setUsers(Customer users) {
 		this.users = users;
 	}
 	@Override

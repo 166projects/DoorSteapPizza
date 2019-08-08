@@ -19,6 +19,8 @@ public class OrderItems implements Serializable{
 	private int quantity;
 	@ManyToOne
 	private FoodItems fooditems;
+	@ManyToOne
+	private Customer cid;
 	public int getSerialNo() {
 		return serialNo;
 	}

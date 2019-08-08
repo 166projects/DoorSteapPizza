@@ -23,7 +23,7 @@ public class CreditCardDetails implements Serializable{
        @Column(nullable=false)
     private Date expiry_date;
        @ManyToOne
-       private User users;
+       private Customer users;
        
        
        public long getCard_no() {
@@ -50,10 +50,10 @@ public class CreditCardDetails implements Serializable{
        public void setExpiry_date(Date expiry_date) {
               this.expiry_date = expiry_date;
        }
-       public User getUsers() {
+       public Customer getUsers() {
               return users;
        }
-       public void setUsers(User users) {
+       public void setUsers(Customer users) {
               this.users = users;
        }
        @Override
