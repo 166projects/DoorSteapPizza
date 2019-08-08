@@ -2,6 +2,7 @@ package com.mphasis.project.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,10 @@ public class OrderItems implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int serialNo;
+	@Column(nullable=false)
+
 	private int cost;
+	@Column(nullable=false)
 	private int quantity;
 	@ManyToOne
 	private FoodItems fooditems;
