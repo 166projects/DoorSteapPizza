@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Restaurants implements Serializable {	
@@ -37,6 +38,16 @@ private int ratings;
 
 @ManyToMany(mappedBy="restaurants", fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 private List<Location> location;
+@OneToMany(mappedBy="restaurants", fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+private List<FoodItems> fooditems;
+
+public List<FoodItems> getFooditems() {
+	return fooditems;
+}
+
+public void setFooditems(List<FoodItems> fooditems) {
+	this.fooditems = fooditems;
+}
 
 public int getRid() {
 	return rid;
@@ -86,8 +97,7 @@ public void setLocation(List<Location> location) {
 	this.location = location;
 }
 
-/*@OneToMany(mappedBy="restaurants", fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-private List<FoodItems> fooditems;*/
+
 
 
 
