@@ -1,0 +1,13 @@
+.pagecenter {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+    float: none;
+}
+table{
+    border: 8px solid lightcoral;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    
+}

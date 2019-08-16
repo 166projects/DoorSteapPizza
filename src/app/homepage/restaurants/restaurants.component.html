@@ -1,0 +1,20 @@
+
+
+<table border="1" style="padding:5px; text-align: center">
+  <tr>
+    <th> restaurants Name </th>
+    <th> Ratings</th>
+    <th>Image</th>
+    <th>Menu</th>
+  </tr>
+  <tr *ngFor='let rest of restaurants'>
+    <td>{{rest.rname}}</td>
+    <td>{{rest.ratings}}</td>
+    <td><img src="https://static.insider.com/image/5bfda29c48eb126158734dc2-750.jpg"></td>
+    <td><button class="btn btn-primary" (click)="getfooditems()">Menu</button></td>
+  </tr>
+  <tr *ngIf="!restaurants || restaurants.length==0">
+    <td colspan="4">No restaurants to display</td>
+  </tr>
+
+</table>  

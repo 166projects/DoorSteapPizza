@@ -1,0 +1,32 @@
+<app-foodcount
+[all]="getTotalCount()"
+[nonveg]="getTotalNonVegCount()"
+[veg]="getTotalVegCount()"
+(countRadioButtonSelectionChanged) ="onFoodItemsCountRadioButtonChange($event)"
+></app-foodcount>
+
+<table>
+        <tr>
+          <th> Fid </th>
+          <th>Name</th>
+          <th>Category</th>
+          <th> Cost </th>
+          <th>Type </th>
+          <th>Place Order</th>
+        </tr>
+        <ng-container *ngFor ='let food of fooditems'>
+        <tr *ngIf ="selectedFoodItemsCountRadioButton === 'All' ||
+        selectedFoodItemsCountRadioButton === food.category">
+          <td>{{food.fid}}</td>
+          <td>{{food.fname}}</td>
+          <td>{{food.category}}</td>
+          <td>{{food.cost}}</td>
+          <td>{{food.type}}</td>
+          <td><a routerLink="orderitems">Order</a></td>
+        </tr>
+      </ng-container>
+        <tr *ngIf="!fooditems || fooditems.length==0">
+          <td colspan="5">No Food to display</td>
+        </tr>
+      </table>
+      

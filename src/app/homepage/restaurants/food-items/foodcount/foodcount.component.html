@@ -1,0 +1,16 @@
+
+<div> 
+    <input type="radio" name="options" value="All" [(ngModel)]="selectedRadioButtonValue"
+    (change)="onRadioButtonSelectionChange()"/>
+    <span class="radioClass">{{"All("+all+")"}}</span>
+    
+    <input type="radio" name="options" value="NonVeg" [(ngModel)]="selectedRadioButtonValue"
+    (change)="onRadioButtonSelectionChange()"/>
+    <span class="radioClass">{{"NonVeg("+nonveg+")"}}</span>
+    
+    <input type="radio" name="options" value="Veg" [(ngModel)]="selectedRadioButtonValue"
+    (change)="onRadioButtonSelectionChange()"/>
+    <span class="radioClass">{{"Veg("+veg+")"}}</span>
+    <br/>
+    <br/>
+</div>
